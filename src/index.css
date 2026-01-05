@@ -1,0 +1,94 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full body layout */
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  color:white;
+}
+
+/* Header container */
+.netflix-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  background-image: linear-gradient(transparent,rgb(21, 21, 21),rgb(97, 96, 96));
+  opacity:0.9;
+}
+
+/* Netflix logo image */
+.netflix-logo img {
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* Centered form */
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 40px;
+  border-radius: 10px;
+  width: 320px;
+}
+
+/* Inputs */
+.email,
+.password,
+.name {
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background: rgba(70, 70, 70, 0.6);
+  color: white;
+}
+
+.email::placeholder,
+.password::placeholder,
+.name::placeholder {
+  color: #b3b3b3;
+}
+
+/* Button */
+.signIn {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #e50914;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signIn:hover {
+  background-color: #f40612;
+}
+
+.check-rem{
+  color:#b3b3b3
+}
+
+.toggle-text{
+  cursor: pointer;
+}
+
+.error{
+  color:#e50914;
+  font-weight: bold;
+}
