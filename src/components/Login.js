@@ -1,11 +1,17 @@
 import CheckValidData from "../utils/validate";
 import Header from "./Header";
 import { useState,useRef } from "react";
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../utils/firebase";
+import {signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [signInForm, setSignInForm] = useState(true);
   const[errorMessage,setErrorMessage]=useState("");
 
+  const navigate=useNavigate();
 
   const email=useRef(null);
   const password=useRef(null);
@@ -40,14 +46,48 @@ function Login() {
   console.log(password.current.value);
   console.log(message);
   setErrorMessage(message);
+  if(message) return; /* means if the validate has isssue then show error else if everthing is proper for sign up or sign in */
 
-  // sign In / Sign Up
+  // sign In / Sign Up logic
+  if(!signInForm){
+    // SignUp logic
+    createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+    navigate("/browse");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(errorCode+" "+errorMessage)
+  });
+  }
+  
+  else{
+    // SignIn logic
+    signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user)
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+  }
 }
 
   return (
     <>
-      <Header />
-
+      <Header/>
       <div className="bg-img">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/d13e2d55-5cdd-48c0-a55b-4b292d0b9889/web/IN-en-20251229-TRIFECTA-perspective_d7edcd70-4cfd-441c-858c-c5e400ed6c2b_medium.jpg"

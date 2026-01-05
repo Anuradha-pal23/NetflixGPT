@@ -9,7 +9,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(225, 211, 211);
   display: flex;
   color:white;
 }
@@ -20,8 +20,9 @@ body {
   top: 20px;
   left: 20px;
   z-index: 10;
-  background-image: linear-gradient(transparent,rgb(21, 21, 21),rgb(97, 96, 96));
+  background-image: linear-gradient(transparent,rgb(51, 50, 50),rgb(19, 19, 19));
   opacity:0.9;
+  width: 100%;
 }
 
 /* Netflix logo image */

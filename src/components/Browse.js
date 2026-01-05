@@ -1,7 +1,10 @@
+import Header from "./Header";
+
 function Browse(){
     return(
         <>
-        <h1>browse</h1>
+        <Header/>
+        {/* <h1>browse</h1> */}
         </>
     )
 }
