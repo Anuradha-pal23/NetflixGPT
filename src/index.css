@@ -15,14 +15,16 @@ body {
 }
 
 /* Header container */
-.netflix-logo {
+.header-logo {
   position: absolute;
   top: 20px;
   left: 20px;
   z-index: 10;
-  background-image: linear-gradient(transparent,rgb(51, 50, 50),rgb(19, 19, 19));
+  background-image: linear-gradient(transparent,rgb(19, 18, 18),rgb(47, 46, 46));
   opacity:0.9;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Netflix logo image */
@@ -92,4 +94,19 @@ body {
 .error{
   color:#e50914;
   font-weight: bold;
+}
+
+.user-logo{
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.sign-out{
+  color:"black";
+   font-Weight:"bold";
+   font-Size:"20px";
+}
+
+.sign-out:hover{
+  cursor: pointer;
 }
